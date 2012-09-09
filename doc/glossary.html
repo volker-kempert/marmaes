@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!--
+MARMEAS is free software; you can redistribute it and/or modify it under the terms 
+of the GNU General Public License version 3 as published by the 
+Free Software Foundation. 
+
+MARMEAS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+without even the implied warranty of MERCHANTABILITY or 
+FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the  http://www.gnu.org/copyleft/gpl.html for more details.
+
+Copyright (c) 2011, Volker Kempert <volker.kempert@gmx.net>
+-->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="Author" content="Volker Kempert"/>
+	<meta name="description" content="MARMEAS - Introduction"/>
+	<meta name="keywords" content="documentation, manual, user guide, reference"/>
+	<title>Image Centric Object Marking and Measurement</title>
+</head>
+
+<body>
+
+<h1> Glossary </h1>
+
+<dl>
+
+<dt><a name="base_object_type">  Base Object Type  </a></dt>
+<dd>
+Supported 2d object patterns including marking definitions, object model and
+superset of possible measurements
+</dd>
+
+
+
+<dd><a name="cog"> Center of Gravity </a></dd>
+<dt>describes ...; mainly used as the zero point/reference point
+to relate the position of one object to the image or other objects. 
+of an object tha</dt>
+</dl>
+
+<dl>
+
+<dt><a name="image_context"> Image Context </a></dt>
+<dd>
+definitions describing a image with respect to the situation it was
+taken and the circumstances it is of a value
+like real units of measurement, retrieval into a repository (through
+customised parameters, and directories)
+<p/>
+There is a quick access i.e. empty context to speed-up ad-hoc
+assessments of images.
+</dd>
+
+<dt> Image Context Template</dt>
+<dd>
+Patterns that simplify the create of Image Contexts.
+</dd>
+
+<dt>Marking Point </dt>
+<dd>
+Is a point set by the user on a designated location of the surface of
+an object, that allows to derive some information about the object
+shape. I.e. this point is used to compute Object Model parameters.
+</dd>
+
+
+<dt><a name="measurement"> Measurement </a></dt>
+<dd>
+Any kind of geometric measurement (like size, max dimension, ...)
+or intensity (like average intensity, variance of intensity) measurement 
+done on the object. Photometric measurement is a synonym to photometric 
+measurement
+</dd>
+
+
+<dt><a name="model_parameter"> Model Parameter </a></dt>
+<dd>
+are the paramter that describe an 
+<a href="glossary.html#object_model">object model </a>
+in a way that shape, location, ..., i.e. all geometric features of the 
+object can be determined.
+</dd>
+
+<dt><a name="object"> Object </a></dt>
+<dd>
+Is a representation of a recognisable 2d imaginary structure, that can
+be distinguished from other 2d imaginary structures.
+it consists of the object model, geometric parameters, markings
+information, name and notes and a set of shape and intensity
+measurements
+</dd>
+
+<dt><a name="xod"> Object Data File </a></dt>
+<dd>
+Is a xml-formatted data/file containing  
+<a href="glossary.html#object">marked objects </a> including their 
+<a href="glossary.html#object_model">object model </a>
+and their associated
+<a href="glossary.html#measurement">measurements </a>
+The related 
+<a href="glossary#image_context"> image context </a>.
+is included as well. 
+<p/>
+It is recommended to use the extension 'xod'.
+</dd>
+
+<dt> Object Fitter </dt>
+<dd>
+Is the facilitating method that allows to compute the model parameter
+for a given model from the set of given marking points. It is possible
+to have multiple Object Fitter for a single Object Model. Those fitter
+consider different sets of marking points.
+</dd>
+
+<dt><a name="object_model">  Object Model <a></dt>
+<dd>
+Is a geometric figure that looks similar to the shape of the object.
+The parameters of the figure (e.g. the radius in case the model is a
+circle) are fitted, such that object model and object shape appear as
+similar as possible.
+</dd>
+
+<dt> Object Marking </dt>
+<dd>
+Is the activity to determine marking points on the shape of the
+object, that are used to compute model parameter that fit the object
+model to the object.
+</dd>
+
+<dt> <a name="object_shape"> Object Shape</a> </dt>
+<dd>
+Data describing the 2d structure from a topological point of view, it
+does not consider intensity information. Model based shapes are
+characterised throughout a set of model dependent parameter
+</dd>
+
+<dt><a name="object_texture"> Object Texture </a></dt>
+<dd>
+Data describing the 2d structure considering all intensity information
+(either grey-scale or colour channels).
+</dd>
+
+<dt><a name="object_type"> Object Type </a></dt>
+<dd>
+is a Base Object Type  extended by a name (representing the business
+context) and  reduction to subset of relevant measurements (
+The subset of measurements is derived from measurements of the
+referenced base object type)
+</dd>
+
+<dt><a name="object_template">  Object Template</a></dt>
+<dd>
+Are used to create Objects of a specific Objects Type. I.e. Object
+Templates define an Object Type.
+</dd>
+
+</dl>
+
+</body>
+</html>

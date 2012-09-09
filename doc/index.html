@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="Author" content="dobus"/>
+	<meta name="description" content="MARMEAS - Introduction"/>
+	<meta name="keywords" content="documentation, manual, user guide, reference"/>
+	<title>Image Centric Object Marking and Measurement</title>
+</head>
+
+<body>
+
+<h1> <a name="what_is_marmeas">What is MARMEAS? </a></h1>
+
+<b>MARMEAS </b> is an abbreviation for 
+<em> MARking and MEAsurement on objects on images </em>
+<p/>
+<b>MARMEAS</b> is a handy tool is to identify objects on an image and let the application
+do geometric or photometric measurements on those objects.
+<p/>
+<b>MARMEAS </b> allows to accelerate computer vision projects 
+that lead to process automation:
+<p/>
+Assume the following situation where
+images are already acquired from a production process but the objects of 
+interest, the objects to detect, measure and check against are not known 
+yet.
+The <b> MARMEAS </b>  tool allows to manually mark those object on the image and use 
+those markings as a reference database (ground truth) for computer vision. 
+The reference database will be probably split apart: 
+<ul>
+<li>Primarily 
+to a <em> training database </em>, for the sake of teaching  
+computer vision methods/parameters to achive optimal 
+measurement and quality check performance.(Tuning aspect)
+</li>
+<li>
+Secondarily to a <em> test database </em> used to proof 
+the image analytical performance on 
+an independet test set. (Generalization aspect)
+</li>
+</ul>
+Alternatively, any other means where objects need to be interactively marked and 
+object features need to be determined and visualized this <b> MARMEAS </b> tool 
+might be of interest.
+
+<h1> <a name="usecases"> Application Scenarios </a> </h1>
+
+Lets call our users by name just to indicate that they are different 
+persons with different intentions. 
+
+<ul>
+<li>
+	<b>Alice investigates a new image ad-hoc</b>
+	<p/>
+	Alice just want a quick idea what characteristics a certain object on an 
+	image has. Therefore Alice selects an appropriate object model e.g. a line
+	and marks the start and end point. The system computes the intensity profile,
+	the line length and other measure for Alice. 
+</li>
+
+<li>
+	<b>Bob visually examines the objects and measurements, 
+	that are made available for an image.</b>
+	<p/>
+	Bob loads the image and also the marked objects. The system visualizes the 
+	geometric positions of the objects and Bob can select any object he 
+	is interested in and the system will present the relevant measures.
+	Bob can add new or remove existing measurements on that object.
+</li>
+
+<li>
+	<b>Alice marks consistently objects for determining ground truth.</b>
+	<p/>
+	Alice loads an image and marks on each image a set of objects that are 
+	important to know later on. 
+	This could be for development of an object detection algorithm, following
+	the learing from data approach. Once she is done with one image Alice saves
+	all the markings and measurements in a machine readable (xml) file.
+	The repeats her marking activities on a lot
+	of images of the same kind. Alice uses image templates and object templates
+	to automate the manual marking as much as possible. 
+</li>
+
+<li>
+	<b>Bob marks consistently objects of the same kind on same kind of 
+	images for validating purposes.</b>
+	<p/>
+	This is the same as the activity as before, exect that Bob saves his marked
+	objects on a different place than Alice. Thus, validation cross checking 
+	can be done automatically (outside of this application) by any suitable 
+	validation script.	
+</li>
+</ul>
+
+<h1> <a name="features">Major Features</a></h1>
+
+<ul>
+<li><b>Unit of Measurements as of the original Objects</b>
+	<p/>
+	The <a href="glossary.html#image_context"> image context </a> allows to 
+	maintain context information for images, among that are the original 
+	unit of measurements of the objects as well as a conversion factor.
+</li>
+<li><b>Model driven Marking</b>
+	<p/>
+	Objects are described by an <a href="glossary.html#object_model"> 
+	object model </a>, like a point, a line, a circle,
+	an rectangle and so on, that fit most the shape of the object. The users
+	selects the model and marks characteristics points of that model. Those
+	characteristic points allow to compute the model parameters, to completely
+	describe the location, size and shape of the object as compact as possible.
+</li>
+<li><b>Variety of supported Object Models</b>
+	<p/>
+	There are <a href="glossary.html#object_model"> 
+	object models </a> for the most common shapes. Among them point, line 
+	circle. The user can derive custom models by creating
+	<a name="object_template"> object templates </a>.  
+</li>
+<li><b>Customizable Set of Measurments on Objects</b>
+	<p/>
+	The user can choose on an object bases which measurements he/she is 
+	actually interested in.
+</li>
+<li><b>Variety of geometric Measurments</b>
+	<p/>
+	Dependent on  the applied 
+	<a href="glossary.html#object_model"> object model </a>, specific
+	measurements based on the object model/object shape and 
+	the concrete markings of the object of interest are available. 
+	Those measurements are figures like length, width, height, 
+	geometric midpoint, circumfence, surface area, roundness  	
+</li>
+<li><b>Flexible Areas of Interest per Object</b>
+	<p/>
+	Areas of interest define the region on an image where intensity based
+	measurements are taken for an object of interest.
+	Therefore, areas of interest are bound to shape of the 
+	object of interest. The AoI's are also customizable on object bases. 
+	Depending on the <a href="glossary.html#object_model"> object model </a>
+	multiple areas of Interest can be available.
+</li>
+<li><b>Variety of monochrome Intensity Measurements</b>
+	<p/>
+	Intensity Measurements are done on object of interest.
+	Those measurement include intensity profiles as well as histograms. 
+	On either data, statistical figures are available like mean, 
+	variance/standard deviation, minimum, maximum, center of gravity,
+	median, lower quartile, upper quartile 
+</li>
+<li><b>Machine readable XML output</b>
+	<p/>
+	Object information including the related measurement 
+	and image context information are stored on 
+	machine readable files in a XML format (called xml object description - xod)
+	<p/>
+	Those XML representation can be read later again to visualize and browse
+	previously done object markings and measurements.
+</li>
+<li><b>Intuitive User Interaction </b>
+	<p/>
+	The application provides a state of the art user interface, that is easy to
+	use and easy to get into. Figure out by yourself. Any feedback or suggestion
+	for improvement is welcome.
+</li>	
+<li><b>Visual marking/object/measurement presentation </b>
+	<p/>
+	Compact presentation of an object and all related information as the object 
+	shape, the object on the image, the key figures and measurement as well as
+	histogram/profile plots.
+	<p/> 
+	Easy switching to another object or adding/modifying/removing of objects.
+</li>
+</ul>
+
+ 
+<h1> <a name="license"> License Terms and Copyright </a></h1>
+
+MARMEAS is free software; you can redistribute it and/or modify it under the terms 
+of the GNU General Public License version 3 as published by the 
+Free Software Foundation. 
+<p/>
+MARMEAS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+without even the implied warranty of MERCHANTABILITY or 
+FITNESS FOR A PARTICULAR PURPOSE.  
+<p/>
+See the <a href="gpl_v3.txt"> GNU General Public License </a>for more details.
+<p/>
+Copyright (c) 2012 , Volker Kempert &lt;volker.kempert@vkeng.de&gt;
+
+<h1> <a name="roadmap">Project Roadmap</a></h1>
+
+The roadmap lists anticipated releases and features. That is wishful thinking 
+about the future. Although it might change quite often, it is the only 
+communicated indicator of what to expect in the future. Of course, you can 
+influence by <a href="get_involved">getting involved </a> into the development.   
+
+<h3> Version 1.x </h3>
+As described above
+
+<h3> Version 2.x </h3>
+<ul>
+<li>
+	<b>Extensibility of supported object models</b>
+	The user can derive custom models by creating
+	<a name="object_template"> object templates </a>.  
+</li>
+<li>
+	<b>More supported base objects</b>
+	like triangle, polygon, ellipse 
+</li>
+</ul>
+
+<h3> Version 3.x </h3>
+<ul>
+<li>
+	<b>False Color Maps</b> to visualize small banded intensity distributions
+	on objects of interest
+</li>
+<li>
+	<b>Gradient Computation</b> 
+	fits a linear functions and computes 
+	their parameter as well as quality of fit. This is useful to get an idea 
+	about a global gradient on a line object
+</li>
+<li><b>Variety of color based intensity measurements</b> 
+	to be worked out later
+</li>
+</ul>
+
+<h3> Version 4.x </h3>
+<ul>
+<li>
+	<b>Template based Automatic Object Location Estimation</b> allows semi-
+	automated object markings for known object. 
+	This is to get the finger into the pie for automated quality checks based
+	on image at the context industrial automation
+</li>
+<li>
+	<b>Objects of Objects</b> allow measure distances, moments etc among objects.
+	Multiple object can selected and grouped to a single object.  
+</li>
+
+</ul>
+
+
+<h1> <a name="get_involved"> How to get involved into Development</a></h1>
+Since MARMEAS is a public domain project under GPL, it is up to you to 
+contribute to the project in either way. There are 
+several levels of involvement,  Any help is appreciated at any level. 
+<p/>
+<ul>
+<li>You can inform about bugs</li>
+<li>You can share your experience</li>
+<li>You can make proposals for new features</li>
+<li>You can do the programming</li>
+</ul> 
+
+<h2> Technical Notes for Developers </h2>
+MARMEAS is written in C++ facilitating the 
+Qt4 library and tools (Designer, ...)
+<p/>
+MARMEAS is is intended to be portable on Windows and Linux platforms.
+Other platforms might follow if somebody is willing to do the port.
+The platform specifics is considered as late as possible. 
+The code is intended to be platform neutral as much as possible.
+<p/>
+Cmake is used to control the build, install and package process.
+On windows NullSoft Installer is used, on linux debian packages are created. 
+All that controlled by cmake.
+<p/>
+Unit tests are maintained as well facilitating the cppunit test framework.
+Of course, those unit tests are there to assure functional correctness. 
+</body>
+
+</html>

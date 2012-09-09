@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <QtHelpProject version="1.0">
+     <namespace>marmeas</namespace>
+     <virtualFolder>doc</virtualFolder>
+     <filterSection>
+         <filterAttribute>marmeas</filterAttribute>
+         <toc>
+             <section title="General Information"               ref="index.html">
+		         <section title="What is MARMEAS"                 ref="index.html#what_is_marmeas"/>
+	             <section title="Application Scenarios"         ref="index.html#usecases"/>		         
+		         <section title="Major Features"                ref="index.html#features"/>
+		         <section title="License and Copyright"         ref="index.html#license">	
+		         	<section title="GPL Terms"                  ref="gpl_v3.txt"/>
+		         </section>				         	         
+	             <section title="Project Roadmap"               ref="index.html#roadmap"/>  
+	             <section title="Get involved into Development" ref="index.html#get_involved"/>     	                                
+		     </section>                      
+             <section title="User Guide"                        ref="userguide.html">
+	             <section title="Introduction"                  ref="userguide.html#introduction"/>           
+	             <section title="Load and Save"                 ref="userguide.html#load_save">
+	             	<section title="Load an Image"              ref="userguide.html#load_image"/>
+	            	<section title="Load an Object File"        ref="userguide.html#load_xod"/> 
+	            	<section title="Save an Object File"        ref="userguide.html#save_xod"/> 
+			     </section>
+	             <section title="Image Context"                 ref="userguide.html#image_context"/>     
+	             <section title="Image Context Templates"       ref="userguide.html#image_context_template"/>   	                   
+	             <section title="Objects"                       ref="userguide.html#objects">
+				 	<section title="Add an Object"              ref="userguide.html#add_object"/>  	                        
+				 	<section title="Remove an Object"           ref="userguide.html#remove_object"/>  	                        
+				 	<section title="Modify an Object"           ref="userguide.html#modify_object"/>  	                        
+	             	<section title="Customize the Measurements" ref="userguide.html#object_config"/> 
+			     </section>         
+	             <section title="Object Templates"              ref="userguide.html#object_templates"/>           
+				 <section title="Base Object Models">           ref="userguide.html#base_object_model">	             
+		         	 <section title="Point"                     ref="point.html"/>    		                    
+		             <section title="Circle"                    ref="circle.html"/>
+		             <section title="Line"                      ref="line.html"/>
+		             <section title="Ellipse"                   ref="ellipse.html"/>
+		             <section title="Rectangle"                 ref="rectangle.html"/>
+		             <section title="Polygon"                   ref="polygon.html"/>
+		             <section title="Rectangle"                 ref="rectangle.html"/>
+		             <section title="Grid"                      ref="grid.html"/>
+		         </section>
+		         <section title="Object Measurements"           ref="userguide.html#measurements">    
+		         	<section title="Geometric Measurements"     ref="userguide.html#geometric_measurements">    
+			             <section title="Midpoint"              ref="userguide.html#midpoint"/>
+			             <section title="Bounding Box"          ref="userguide.html#bounding_box"/>
+			             <section title="Roundness"             ref="userguide.html#roundness"/>
+			             <section title="Surface"               ref="userguide.html#surface"/>
+			             <section title="Circumference"         ref="userguide.html#circumference"/>
+		         	</section>   				             
+		         	<section title="Photometric Measurements"   ref="userguide.html#photometric_measurements">    
+			             <section title="Histogram"             ref="userguide.html#histogram.html"/>
+			             <section title="Profile"               ref="userguide.html#profile.html"/>
+			             <section title="Statistic Moments"     ref="userguide.html#statistic_moments.html"/>			             
+			             <section title="Quartile"              ref="userguide.html#quadrille.html"/>			             
+		         	</section>
+	         	</section>   		         	   				             
+	         </section>           
+             <section title="Glossary"                          ref="glossary.html"/>
+         </toc>
+         <keywords>
+             <keyword name="unit of measurement" id="marmeas::unit of measurement" ref="userguide_input_configuration.html"/>                         
+             <keyword name="center of gravity" id="marmeas::center of gravity"     ref="glossary.html#cog"/>                         
+             <keyword name="mean" id="marmeas::mean"     ref="userguide.html#statistic_moments"/>                         
+         </keywords>
+		<files>
+     		<file>classic.css</file>
+     		<file>index.html</file>
+     		<file>userguide.html</file>
+     		<file>glossary.html</file>
+     		<file>gpl_v3.txt</file>
+ 		</files>
+     </filterSection>
+ </QtHelpProject>

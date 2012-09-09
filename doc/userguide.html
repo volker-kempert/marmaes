@@ -1,0 +1,414 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!--
+MARMEAS is free software; you can redistribute it and/or modify it under the terms 
+of the GNU General Public License version 3 as published by the 
+Free Software Foundation. 
+
+MARMEAS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+without even the implied warranty of MERCHANTABILITY or 
+FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the  http://www.gnu.org/copyleft/gpl.html for more details.
+
+Copyright (c) 2011, Volker Kempert <volker.kempert@gmx.net>
+-->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="Author" content="dobus"/>
+	<meta name="description" content="MARMEAS - User Guide"/>
+	<meta name="keywords" content="documentation, manual, user guide, reference"/>
+	<title>Image Centric Object Marking and Measurement</title>
+</head>
+
+<body>
+
+<h1> <a name="introduction">  </a> Introduction </h1>
+This userguide is part of the MARMEAS help system. You get get into it by 
+pressing <b>F1</b> or navigating to the help menu.
+ 
+<h1> <a name="load_save"> Loading and Saving </a></h1>
+<h2> File Types </h2>
+There are several types of files MARMEAS deals with.
+<dl>
+<dt> Image Files </dt>
+	<dd> 
+	... are the input. Typical formats like jpg, bmp, png are supported. 
+	Intensity measurements operate only on monochrome images at present.
+	Image files will be never changed. Thus, read access is sufficient.
+	</dd>
+	<dd> 
+<dt> Object Data Files <dt>
+	<dd> 
+	... are the xml-persistent mappings of all 
+	<a href="glossary.html#object">marked objects </a> including their 
+	<a href="glossary.html#object_model">object model </a>
+	and their associated
+	<a href="glossary.html#measurement">measurements </a>
+	The related 
+	<a href="glossary#image_context"> image context </a>.
+	is included as well. 
+	<p/>
+	The extension is 'xod'.
+	The extension will be added automatically 
+	if nothing is added while saving the file.
+	<p/> 
+	</dd>
+</dl>	
+
+<h2><a name="load_image"> Load an Image File </a></h2>
+	If you would like to start working on an image, just open via 
+	<em> file -&gt; load </em> the file selection dialog. Select the file, and 
+	trigger loading
+<p/>
+	The image file gets loaded and depending on the 
+	<a href="glossary#image_context_template"> Image Context Template </a>
+	a default location and default file name is determined of how the 
+	object data file name will be. 
+<p/> 
+	If the not modifiable default template is used,
+	the name will be like the image file base name, but with extension xod.
+	The object data file will be stored at the very same directory 
+	where the image file is loaded from.
+<p/>
+	<class id="note">
+	Any objects and measurement you previously worked on 
+	will be removed since they belong to another image. 
+	Therefore, MARMEAS ask if you haven't saved the data before.
+	</class>
+
+<h2><a name="load_xod"> Load an Object Data File </a></h2>
+	If you would like to review measurement, extend a have-way-done work
+	just open via 
+	<em> file -&gt; load </em> the file selection dialog. Select the 
+	object data file, and trigger loading.
+<p/>
+	The object data file gets loaded, the internal object storage will be
+	updated with the objects stored on the file, 
+	the image context gets updated and the image is loaded,
+	since this information is part of the image context. 
+<p/>
+	Any changes made to the <a href="glossary#image_context"> image context </a>
+	or to the 	<a href="glossary.html#object">objects </a>
+	will be saved to the very same file, if the save button is pressed. 
+<p/>
+	<class id="note">
+	Any objects and measurement you previously worked on 
+	will be removed since they belong to another image. 
+	Therefore, MARMEAS ask if you haven't saved the data before.
+	</class>
+<p/>
+	<class id="note">
+	When saving object data all measurement will be stored (except full
+	profie or histogram data) in order to allow later postprocessing.
+	<p/>
+	However, at loading the measurement will not be loaded but recomputed
+	from the image.
+	</class>	
+
+<h2><a name="save_xod"> Save an Object Data File </a></h2>
+	If like to make sure our markings/edits on object are not lost after
+	you finish your work, you have to save.
+<p/> 
+	Independently where you started from (image file or object data file)
+	only a <a href="glossary#xod"> object data file </a> is saved.
+	The file location is the very same location of object data file
+	you loaded from. If you loaded an image file instead of an object data file,
+	the file name is determined from the 
+	<a href="glossary#image_context">image context</a>. 
+<p/>
+	At any time you save a copy by choosing 
+	<em> file -&gt; save as </em> the file selection dialog will show up. 
+	Go to the desired directory, enter the appropriate file name 
+	and trigger the save buttom.
+<p/>
+	<class id="note">
+	If you do not provide an extension for the file name 'xod' will be 
+	used automatically.
+	</class>
+<p/>
+	<class id="note">
+	It is strongly recommended to use 'xod' or alternatively 'xml'
+	as extention for more easy handling of data autside of the MARMEAS
+	application.
+	</class>
+<p/>
+	
+
+<h1><a name="image_context"> Image Context </a></h1>
+	The <a href="glossary.html@image_context"> image context </a> is implicitly
+	always present. By help of the image context it is possible to maintain data 
+	that relates to the images. Every object you add, referes to the image 
+	context. As you know, conversion factor and unit of measurement is part 
+	of the image context. So, if you change unit of measurement from 'm' to 'mm'
+	and the conversation factor from 0.5 to 500, the geometric measurements
+	of all objects will be presented in 'mm' after that change.
+<p/>
+	The image context is always shown to the top-right, you can edit the
+	by selecting <em> Edit -&gt; Image Context </em>.  
+<p/>
+	The <a href="glossary.html@image_context"> image context </a> not only 
+	maintains data that is essential for measurement, but also data that 
+	simplifies handling of data persistance, i.e. file name for image file,
+	for object data file and additional two auxiliary free parameter to derive
+	the file location from.
+<p/>
+	Whenever, an <a href="glossary#xod"> object data file </a> is loaded, the 
+	image context is recreated from the object data file.
+<p/>
+	In case an image file is loaded,
+	the default of the <a href="glossary.html@image_context"> image context </a>
+	depents of the active
+	<a href="glossary.html@image_context_template"> image context template</a>
+	at the very moment an image file is loaded.
+<p/>
+	If you have not worked with image context templates, the default is
+	operating on Pixel at a 1:1 conversation factor and the data object file
+	will be stored in the same directory as the image file, using the same
+	base name, but xod as extension. 
+	  
+<h1><a name="image_context_template"> Image Context Template</a></h1>
+	The <a href="glossary.html@image_context"> image context </a> controlls
+	what parameter are set when a new image is opened.
+	<p/>
+	Multipe image context templates can be maintained. They are persistantly
+	stored using the Settings mechanism of QT4. 
+	<p/> There is exactly one image context template that is active.
+	this Image Context Template is used to set the initial values of an 
+	<a href="glossary.html@image_context"> image context </a>
+	whenever a new image file is loaded.
+
+
+<h1><a name="objects"> Objects </a></h1>
+	Objects are the main 'subjects of interest' within the MARMEAS application.
+	Objects are the structures on an image where humans are able to clearly 
+	distinghish and where humans are able to decide if a portion/pixel of an
+	image belongs to an object or not.
+<p/>
+	Thus, humans can tell the application where an object is and how big an 
+	object is by 
+	<ol>
+		<li> selecting an <a href="glossary.html#object_model">object model </a>
+			 that fits best to the shape of the object; e.g. a circle model 
+		</li>
+		<li> marking prominent points (e.g. on the border line of the object)
+		     in order to compute the model parameter from those points; e.g. 
+		     compute the midpoint and the radius of the circle from three points
+		     marked on the circumfence of the circle.
+		 <li>
+	</ol>
+<p/> 
+	Objects can be named by their shape (like point, line, circle, ...)
+	or they can be named by ther semantic meaning (bold, hole, notch, ...)
+<p/>
+	Object are described by an
+	an <a href="glossary.html#object_model">object model </a> and their 
+	<a href="glossary.html#model_parameters"> model parameters</a>
+<p/>
+	Objects are the structures where measurements made on an 2d image are 
+	assigned to.
+<p/> 
+	
+
+<h2><a name="add_object"> Add an Object </a></h2>
+
+	<ul>
+		<li> Switch to the <em>'Add Object Mode'</em> </li>
+		<li> Select the object model that you object you intend to had shall
+		     have
+		     <p/>
+		     <class id="note"> The object model cannot be changed afterwards
+		     </class>
+	    </li>
+	    <li> Set the marking points, as many as are required for the 
+	         object model 
+	    </li>
+	</ul>
+	Once you have added all points the object is created and visualized.
+	Since you still at the <em>'Add Object Mode' </em> and the 
+	object model has not changed. Marking further points will start adding 
+	a new object of the same object model.
+
+
+<h2><a name="remove_object"> Remove an Object </a></h2>
+
+	<ul>
+		<li> Switch to the <em>'Selection Mode'</em> </li>
+		<li> Select the object you intend to delete.  </li>
+	    <li> Press the <em> Del </em> key or use <em>Edit -&gt; Delete </em>
+	         menu.	    </li>
+	</ul>
+	The application removes the object from the main memory. For persistance
+	removal, call <em> File -&gt; Save </em> to save the changes.
+	 
+h2><a name="modify_object"> Modify an Object </a></h2>
+
+	The only way to modify an object is to change the marker points you have 
+	already set. This will change the model parameter and will initiate an 
+	update of all measurements.
+	<ul>
+		<li> Switch to the <em>'Selection Mode'</em> </li>
+		<li> Drag a marker point you like to move and drop it to the
+		     place where it better fits to.
+		     <p/>
+		     The object parameter and measurements will be immediately 
+		     recalculated.
+		 </li>
+		<li> Repeat that for all marker points in question. 
+		 </li>
+	</ul>
+	The application removes the object from the main memory. For persistance
+	removal, call <em> File -&gt; Save </em> to save the changes.
+
+<h2><a name="object_config"> Customize the Measurements </a></h2>
+
+	There is a convineant way to customize the measurements you are interested
+	in. Next time you load the object data file. only the desired measurements
+	will be shown.
+	<ul>
+		<li> Switch to the <em>'Selection Mode'</em> </li>
+		<li> Select the object where you want to inspect the measurements  </li>
+		<li> Open the Customize Measurement Dialog  
+			 <em>Edit -&gt; Object Measurements </em> 
+		 </li>
+		<li> Switch on all measurements you need, switch of the others and
+			 apply your edits. 
+		 </li>
+	</ul>
+	The display of measurements will immediately update to the new desired 
+	settings.
+	<p/>
+	After saving, and later on loading 
+	only the customized measurements will be shown. Still, it is 
+	possible to switch on the other measurements again.
+
+<h1><a name="object_templates"> Object Templates </a></h1>
+
+	will be implemented and described later
+
+<h1><a name="base_object_model"> Base Object Models </a></h1>
+
+	Base object models are easily to identify. They are named according to 
+	their geometric shape like point, line, circle, rectangle ..., whereby
+	derived object models, described by object templates rather named in 
+	relation to the semantic meaning of object, like hole, bold, notch, etc.
+<p/>
+	All base models are implemented as QT4 plugins. More base object models
+	can easily provided by any 3rd party without the need to rebuild the 
+	core application.
+<p/>
+	The base object models are:
+<ul>
+	<li><a href="point.html"> Point </a> will be implemented later </li>
+	<li><a href="line.html"> Line </a> </li>
+	<li><a href="circle.html"> Circle </a> will be implemented later </li>
+	<li><a href="rectangle.html"> Rectangle </a> will be implemented later </li>
+	<li><a href="ellipse.html"> Ellipse </a> will be implemented later </li>
+	<li><a href="grid.html"> Grid </a> will be implemented later </li>
+	<li><a href="polygon.html"> Polygon </a> will be implemented later </li>
+</ul>
+   
+<h1><a name="measurements"> Object Measurements </a></h1>
+	
+	For a given object on an image, certain features of the object can be 
+	measured.
+	The the <a href="glossary.html#object_model">object model </a>
+	is facilitated in order to derive the correct 
+	<a ref="glossary.html#measurement"> measurement </a>.
+	
+	There are two types of measurement:
+	<ul>
+		<li> geometric measurements </li>
+		<li> photomtectric measurements </li>
+		     
+	</ul>
+
+<h2><a name="geometric_measurements"> Geometric Measurements </a></h2>
+
+	 The geometric measurement only depends on the object model
+	 and it's parameters all geometric measurements consider the
+	 <a ref="glossary.html#object_shape">  shape of the object </a>.
+<p/>
+	 Since the geometric measurements are dependent upon the 
+	 <a href="glossary.html#object_model">object model </a>,
+	 the specific measurements are described in the in the context 
+	 of the base object models.
+<p/>
+	 There are some common geometric measurements, which follow next
+	 
+<h3><a name="bounding_box"> Bounding Box </a></h3>	 
+<h3><a name="midpoint">     Midpoint </a></h3>	 
+<h3><a name="Roundness">    Roundness </a></h3>	 
+<h3><a name="Surface">      Surface </a></h3>	 
+<h3><a name="Circumference"> Circumference </a></h3>	 
+
+<h2><a name="photometric_measurements"> Photometric Measurements </a></h2>
+
+	Photometric measurement are always computed on a set of pixel. This implies
+	that that the image itself is available for the measurement and it also 
+	requires a meaningful definition of which set of pixel is actually considered.
+<p/>
+	The current implementation can only deal with monochrome images. Color 
+	information is not implemented (yet).
+<p/>
+	The set of pixel considered, depends on the area definition, assigned to 
+	objects. The assignment is according to the object type and could be
+	parameterized. Multiple pixel sets can be bound to one object. 
+	Although, most often only one set is important.
+<p/> 
+	The assignment and parameters are adjusted at the <em> Edit Object </em>
+	dialog, that is available on selected objects via <em> Edit </em> menu. 
+
+<h3><a name="histogram"> Histogram </a></h3>	
+	Histograms a computed on a set Pixel that is compact and two-dimensional.
+	I.e. on an sub-area of the image under measurement. 
+<p/>
+	The concrete sub-areas considered and how are they parameterized is 
+	dependent on the <a href="glossary.html#object_model">object model </a>
+	and described in the context of each object.
+<p/>
+	The number of bins is equal to 256 (according to 8-bit monochrome images)
+<p/>
+<class id="reference">
+	<a href="http://en.wikipedia.org/wiki/Histogram"> Wikipedia on Histograms </a>
+</class>
+	  
+<h3><a name="profile"> Profile </a></h3>	 
+<h3><a name="statistic_moments"> Statistic Moments  </a></h3>	 
+	Statistic moments can be computed on any histogram or profile and allow
+	for a kind of summary on the photometric measurements.
+<class id="reference">
+	<ul>
+		<li><a href="http://en.wikipedia.org/wiki/Mean"> 
+					Wikipedia on Mean </a></li>
+		<li><a href="http://en.wikipedia.org/wiki/Standard_deviation">
+					Wikipedia on Standard Deviation </a></li>
+	</ul>
+</class>
+
+<h3><a name="quartile"> Quartile </a></h3>	 
+	Quartiles, Five-Number Summaries and Seven-Number Summaries have been become
+	more popular recently. As statistic moments they can be computed
+	of any histogram or profile on photometric measurements.
+	Furthermore, Quartiles, Medians, Five-Number Summaries and even 
+	Seven-Number Summaries are the base for Box and Whisker Diagrams.
+<p/>
+	MARMEAS provides so called parametric Seven Number Sommaries 
+	(min, 2%, 9%, 25%, 50%,75%, 91%,98%, max).
+
+<class id="reference">
+	<ul>
+		<li><a href="http://en.wikipedia.org/wiki/Quartile"> 
+					Wikipedia on Quartiles </a></li>	
+		<li><a href="http://en.wikipedia.org/wiki/Five-number_summary"> 
+					Wikipedia on Five-Number Summary </a></li>
+		<li><a href="http://en.wikipedia.org/wiki/Seven-number_summary">
+					Wikipedia on Seven-Number Summary </a></li>
+		<li><a href="http://en.wikipedia.org/wiki/Box_plot">
+					Wikipedia on Box and Whisker Diagrams </a></li>					
+	</ul>
+</class>
+
+</body>
+</html>

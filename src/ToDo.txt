@@ -1,0 +1,22 @@
+ - application icon
+ - grey safe button/menu 
+ - save as with three points ...
+ - rename to terminology ui
+   - image input / image context / template
+   - object template / type
+ - rename to terminology source
+ - undo edit flag (show image description, object..)
+ - help 
+   - glossary
+   - user guide  - main workflow
+   - user guide  - data model
+   - roadmap
+ 
+ 
+ make
+  1) build marmeas
+  2) build test
+  3) build doc
+  4) package window (w/o test)
+  5) patch in version
+  6) build autonomous 

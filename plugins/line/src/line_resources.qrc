@@ -1,0 +1,9 @@
+<RCC>
+  <qresource>  
+    <file>resources/line_icon_a.svg</file>
+    <file>resources/line_icon_b.svg</file>
+    <file>resources/line_icon_c.svg</file>
+    <file>resources/line_icon_f.svg</file>
+    <file>resources/line_icon_h.svg</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,10 @@
+<RCC>
+  <qresource>  
+    <file>resources/circle2_icon_a.svg</file>
+    <file>resources/circle3_icon_a.svg</file>
+    <file>resources/circle3_icon_b.svg</file>
+    <file>resources/circle3_icon_c.svg</file>
+    <file>resources/circle3_icon_f.svg</file>
+    <file>resources/circle3_icon_h.svg</file>
+  </qresource>
+</RCC>

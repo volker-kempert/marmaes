@@ -1,0 +1,16 @@
+/*
+ * injected_defines.h
+ *
+ *  Created on: 20.05.2011
+ *      Author: volker
+ */
+#ifndef INJECTED_DEFINES_H_
+#define INJECTED_DEFINES_H_
+
+#define __application__ "MARMEAS"
+#define __version__ @MARMEAS_VERSION@
+#define __plugin_dir__ "@MARMEAS_PLUGIN_DIR@"
+#define __help_dir__ "@MARMEAS_HELP_DIR@"
+
+
+#endif  /*  INJECTED_DEFINES_H_ */

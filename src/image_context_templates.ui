@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>InputCharacteristics</class>
+ <widget class="QDialog" name="InputCharacteristics">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>310</width>
+    <height>291</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Image Context Tempates</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>12</x>
+     <y>22</y>
+     <width>284</width>
+     <height>255</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="toolTip">
+         <string extracomment="Unit of measurement in &quot;world coordinates&quot;; i.e. coordinates all geometric measures report on"/>
+        </property>
+        <property name="text">
+         <string>Unit of Measurement</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QComboBox" name="UnitOfMeasurement">
+        <property name="editable">
+         <bool>false</bool>
+        </property>
+        <property name="Pixel" stdset="0">
+         <string/>
+        </property>
+        <item>
+         <property name="text">
+          <string>Pixel</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>m</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>cm</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>mm</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>um</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>nm</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>inch</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>feed</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>yard</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>degree</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>radiant</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>grad</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="toolTip">
+         <string extracomment="One Pixel are how many &quot;Unites of Measurement&quot;"/>
+        </property>
+        <property name="text">
+         <string>Conversion Factor</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="ConversationFactor">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::RightToLeft</enum>
+        </property>
+        <property name="text">
+         <string>1.0</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>Directory for Storage of Image Contexts</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLineEdit" name="ImageContextDirectory">
+        <property name="toolTip">
+         <string extracomment="Directory where Image Context files will be stored to; if empty the last used directiry is used instead"/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="actionBrowse_Directory">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>browse</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <item>
+       <widget class="QLabel" name="label_7">
+        <property name="toolTip">
+         <string>$i$ is replaced by the base name of the image; $p1$ is replaced by the value ofcustom paramameter 1  and $p2$ is replaced by the value of custom parameter 2.</string>
+        </property>
+        <property name="text">
+         <string>File Pattern for Storage</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="FilePattern">
+        <property name="toolTip">
+         <string extracomment="pattern to store image context; the extension .xml will be added automatically; $i$ is replaced by the base name of the image; $p1$ is replaced by custom parameter 1; $p2$ is replaced by custom parameter 2;  $u$ is replaced by the user id"/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Name of Custom Parameter 1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="CustomParameter1">
+        <property name="text">
+         <string>&lt;None&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>Name of Custom Parameter 2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="CustomParameter2">
+        <property name="text">
+         <string>&lt;None&gt;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="Apply">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Apply</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="Close">
+        <property name="text">
+         <string>Close</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>820</width>
+    <height>707</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MARMEAS - Image Centric Object Marking and Measurement</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/resources/marmeas.svg</normaloff>
+    <normalon>:/resources/marmeas.svg</normalon>:/resources/marmeas.svg</iconset>
+  </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
+  <property name="documentMode">
+   <bool>true</bool>
+  </property>
+  <property name="dockOptions">
+   <set>QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks</set>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>640</width>
+     <height>480</height>
+    </size>
+   </property>
+   <property name="locale">
+    <locale language="English" country="UnitedStates"/>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetMinimumSize</enum>
+    </property>
+    <item>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0" colspan="2">
+       <widget class="GraphicsView" name="graphicsView">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>1</horstretch>
+          <verstretch>1</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>640</width>
+          <height>480</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>820</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_As"/>
+    <addaction name="actionClose"/>
+    <addaction name="separator"/>
+    <addaction name="action1file"/>
+    <addaction name="action2file"/>
+    <addaction name="action3file"/>
+    <addaction name="action4file"/>
+    <addaction name="action5file"/>
+    <addaction name="action6file"/>
+    <addaction name="action7file"/>
+    <addaction name="action8file"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <widget class="QMenu" name="menuNext_Object">
+     <property name="title">
+      <string>Next Object</string>
+     </property>
+    </widget>
+    <addaction name="actionSelect"/>
+    <addaction name="actionAdd_Object"/>
+    <addaction name="actionNavigate"/>
+    <addaction name="separator"/>
+    <addaction name="menuNext_Object"/>
+    <addaction name="actionDelete"/>
+    <addaction name="actionEdit_Object_Data"/>
+    <addaction name="separator"/>
+    <addaction name="actionImage_Context"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionZoom_In"/>
+    <addaction name="actionZoom_Out"/>
+    <addaction name="separator"/>
+    <addaction name="actionShow_Grid"/>
+    <addaction name="actionShow_Ruler"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menuOptions">
+    <property name="title">
+     <string>Options</string>
+    </property>
+    <addaction name="actionObject_Templates"/>
+    <addaction name="actionImage_Context_Templates"/>
+    <addaction name="separator"/>
+    <addaction name="actionPreferences"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionHelp"/>
+    <addaction name="separator"/>
+    <addaction name="actionAboutQt"/>
+    <addaction name="actionAboutIcomm"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuView"/>
+   <addaction name="menuOptions"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar_2</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionOpen"/>
+   <addaction name="actionSave"/>
+   <addaction name="separator"/>
+   <addaction name="actionNavigate"/>
+   <addaction name="actionSelect"/>
+   <addaction name="actionAdd_Object"/>
+   <addaction name="separator"/>
+   <addaction name="actionZoom_In"/>
+   <addaction name="actionZoom_Out"/>
+   <addaction name="separator"/>
+  </widget>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset>
+     <normalon>:/resources/load.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="toolTip">
+    <string>Open an image file or load an object file (xod) including the referenced image file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset>
+     <normalon>:/resources/save.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="toolTip">
+    <string>Save the marked objects, their associated model and their measurement to file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset>
+     <normalon>:/resources/exit.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionSelect">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/cursor_arrow.png</normaloff>:/resources/cursor_arrow.png</iconset>
+   </property>
+   <property name="text">
+    <string>Select</string>
+   </property>
+   <property name="toolTip">
+    <string>Switch the interaction mode to Select Objects</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionAdd_Object">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/edit_add.svg</normaloff>:/resources/edit_add.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Add Object</string>
+   </property>
+   <property name="toolTip">
+    <string>Switch the interaction mode to Add Marker describing objects</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionZoom_In">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/zoom_in.png</normaloff>
+     <normalon>icons/zoom_in.png</normalon>:/resources/zoom_in.png</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom In</string>
+   </property>
+   <property name="toolTip">
+    <string>Zoom into the image, independently upon the interaction mode</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl++</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionZoom_Out">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/zoom_out.png</normaloff>
+     <normalon>icons/zoom_out.png</normalon>:/resources/zoom_out.png</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom Out</string>
+   </property>
+   <property name="toolTip">
+    <string>Zoom out of the image, independently upon the interaction mode</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+-</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionShow_Icon_Bar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Icon Bar</string>
+   </property>
+  </action>
+  <action name="actionShow_Mesurements">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Mesurements</string>
+   </property>
+  </action>
+  <action name="actionShow_Object_Toolbox">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Object Toolbox</string>
+   </property>
+  </action>
+  <action name="actionShow_Object_Tree">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Object Tree</string>
+   </property>
+  </action>
+  <action name="actionObject_Templates">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Object Templates ...</string>
+   </property>
+  </action>
+  <action name="actionPreferences">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Personal Settings</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/help.png</normaloff>:/resources/help.png</iconset>
+   </property>
+   <property name="text">
+    <string>Online Help</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">F1</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionAboutQt">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/logo-qt.png</normaloff>:/resources/logo-qt.png</iconset>
+   </property>
+   <property name="text">
+    <string>About Qt</string>
+   </property>
+  </action>
+  <action name="actionNavigate">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/cursor_drag_hand.png</normaloff>:/resources/cursor_drag_hand.png</iconset>
+   </property>
+   <property name="text">
+    <string>Navigate</string>
+   </property>
+   <property name="toolTip">
+    <string>Switch the interaction mode to Navigate on the image, e.g. Zoom, Scroll, etc</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionDelete">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/delete.png</normaloff>
+     <normalon>icons/document2_delete.png</normalon>:/resources/delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>Delete Object</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionCircle_3_Point_Definition">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Circle: 3 Point Definition</string>
+   </property>
+  </action>
+  <action name="actionCircle_2_Point_Definition">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Circle: 2 Point Definition</string>
+   </property>
+  </action>
+  <action name="actionSquare_Box_2_Point_Definition">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Square Box: 2 Point Definition </string>
+   </property>
+  </action>
+  <action name="actionBox_3_Corner_Definition">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Box: 3 Corner Definition</string>
+   </property>
+  </action>
+  <action name="actionAligned_Box_2_Point_Definition">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Aligned Box: 2 Point Definition</string>
+   </property>
+  </action>
+  <action name="actionLine_2_Points">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Line (2 Points)</string>
+   </property>
+  </action>
+  <action name="action_named_Objects">
+   <property name="text">
+    <string>&lt;named Objects&gt;</string>
+   </property>
+  </action>
+  <action name="actionNew">
+   <property name="text">
+    <string>New</string>
+   </property>
+  </action>
+  <action name="actionImage_Context_Templates">
+   <property name="text">
+    <string>Image Context Templates ...</string>
+   </property>
+  </action>
+  <action name="actionRecent_Images">
+   <property name="text">
+    <string>Recent Images</string>
+   </property>
+  </action>
+  <action name="actionRecent_Inputs">
+   <property name="text">
+    <string>Recent Inputs</string>
+   </property>
+  </action>
+  <action name="actionRecent_Measures">
+   <property name="text">
+    <string>Recent Measures</string>
+   </property>
+  </action>
+  <action name="actionSave_As">
+   <property name="text">
+    <string>Save As</string>
+   </property>
+  </action>
+  <action name="actionFixed_Size_Box_10px">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Fixed Size Box 10px</string>
+   </property>
+  </action>
+  <action name="actionFixed_Size_Circle_10px">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Fixed Size Circle 10px</string>
+   </property>
+  </action>
+  <action name="actionAboutIcomm">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/marmeas.svg</normaloff>:/resources/marmeas.svg</iconset>
+   </property>
+   <property name="text">
+    <string>About MARMEAS</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionShow_Image_Context">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Show Image Context</string>
+   </property>
+  </action>
+  <action name="actionShow_Object_Data">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Show Object Data</string>
+   </property>
+  </action>
+  <action name="actionImage_Context">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normalon>:/resources/rg1024_Key_tag.svg</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Image Context ...</string>
+   </property>
+  </action>
+  <action name="actionDelete_All">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Delete All Objects</string>
+   </property>
+  </action>
+  <action name="action1file">
+   <property name="text">
+    <string>1file</string>
+   </property>
+  </action>
+  <action name="action2file">
+   <property name="text">
+    <string>2file</string>
+   </property>
+  </action>
+  <action name="action3file">
+   <property name="text">
+    <string>3file</string>
+   </property>
+  </action>
+  <action name="action4file">
+   <property name="text">
+    <string>4file</string>
+   </property>
+  </action>
+  <action name="action5file">
+   <property name="text">
+    <string>5file</string>
+   </property>
+  </action>
+  <action name="action6file">
+   <property name="text">
+    <string>6file</string>
+   </property>
+  </action>
+  <action name="action7file">
+   <property name="text">
+    <string>7file</string>
+   </property>
+  </action>
+  <action name="action8file">
+   <property name="text">
+    <string>8file</string>
+   </property>
+  </action>
+  <action name="actionShow_Object_Tool_Box">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Show Object Tool Box</string>
+   </property>
+  </action>
+  <action name="actionShow_Grid">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Show Grid</string>
+   </property>
+  </action>
+  <action name="actionShow_Ruler">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Show Ruler</string>
+   </property>
+  </action>
+  <action name="actionImage_Presentation_Filtering">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Image Presentation &amp; Filtering</string>
+   </property>
+  </action>
+  <action name="actionEdit_Object_Data">
+   <property name="icon">
+    <iconset>
+     <normalon>:/resources/edit.svg</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Object Data ...</string>
+   </property>
+  </action>
+  <action name="actionShow_Object_Data_2">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Object Data</string>
+   </property>
+  </action>
+  <action name="actionShow_Image_Context_2">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Image Context</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+   <property name="toolTip">
+    <string>Close open image context and objects.</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>GraphicsView</class>
+   <extends>QGraphicsView</extends>
+   <header>marmeas_gui/graphics_view.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

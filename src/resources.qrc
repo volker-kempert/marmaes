@@ -1,0 +1,20 @@
+<RCC>
+  <qresource>
+    <file>resources/plot.svg</file>
+    <file>resources/options.png</file>
+    <file>resources/edit_add.svg</file>
+    <file>resources/delete.png</file>
+    <file>resources/logo-qt.png</file>
+    <file>resources/edit.svg</file>
+    <file>resources/pin-icon.png</file>
+    <file>resources/cursor_drag_hand.png</file>
+    <file>resources/cursor_arrow.png</file>
+    <file>resources/exit.png</file>
+    <file>resources/help.png</file>
+    <file>resources/marmeas.svg</file>
+    <file>resources/load.png</file>
+    <file>resources/save.png</file>
+    <file>resources/zoom_in.png</file>
+    <file>resources/zoom_out.png</file>
+  </qresource>
+</RCC>
